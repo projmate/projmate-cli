@@ -1,0 +1,16 @@
+#!/usr/bin/env node
+var Path = require('path');
+var Fs = require('fs');
+
+var packageDir = Path.join(process.cwd(), 'node_modules/projmate-core');
+if (!Fs.existsSync(packageDir)) {
+  console.error('Projmate-core package not found. Is this the correct directory?');
+  console.log('');
+  console.log('To install');
+  console.log('  npm install projmate-core --save-dev');
+  process.exit(1);
+}
+
+var core = require(packageDir);
+core.cli();
+
