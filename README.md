@@ -1,13 +1,18 @@
 # projmate-cli
 
-Projmate is a declarative and more intuive project system
+Projmate is a declarative and more intuitive project system
 
 * Build environments are first class citizens
 * Uses pipe and filters instead of everything-is-task hammer
 * Watch is built into every task
 
-This is the CLI with a drag 'n drop GUI to follow
+This is the CLI. The sexy drag 'n drop GUI to follow.
 
+## Installation
+
+To install
+
+    npm install projmate-cli -g
 
 ## Example Projfile.coffee
 
@@ -46,8 +51,9 @@ exports.project = (pm) ->
       ]
 ```
 
-## Installation
+## License
 
-To install
+Copyright (c) 2013 Mario Gutierrez <mario@projmate.com>
 
-    npm install projmate-cli -g
+See the file LICENSE for copying permission.
+
