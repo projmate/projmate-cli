@@ -6,18 +6,43 @@
  * See the file LICENSE for copying permission.
  */
 
-var Path = require('path');
 var Fs = require('fs');
+var Path = require('path');
+var pkg = require('../package.json');
+var program = require('commander');
 
-var packageDir = Path.join(process.cwd(), 'node_modules/projmate-core');
-if (!Fs.existsSync(packageDir)) {
-  console.error('Projmate-core package not found. Is this the correct directory?');
-  console.log('');
-  console.log('To install');
-  console.log('  npm install projmate-core --save-dev');
-  process.exit(1);
+program
+  .version(pkg.version)
+  .option('-c, --core <projmate-core-path>', 'Custom path to projmate-core')
+  .parse(process.argv);
+
+
+// try custom core
+var core;
+if (program.core) {
+  if (Fs.existsSync(program.core)) {
+    core = require(program.core);
+  } else {
+    console.error("--core directory does not exist");
+    proces.reallyExit(1);
+  }
 }
 
-var core = require(packageDir);
+// else try node_modules in current directory
+if (!core) {
+  var projmateCore = Path.join(process.cwd(), 'node_modules/projmate-core');
+  if (Fs.existsSync(projmateCore)) {
+    core = require(projmateCore);
+  }
+}
+
+// else use built-in core
+if (!core) {
+  core = require('projmate-core');
+}
+
+console.log("v" + core._meta.version + ", " + Path.dirname(core._meta.filename));
 core.cli();
+
+// vim: set filetype=javascript :
 

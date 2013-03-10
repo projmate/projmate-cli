@@ -1,6 +1,6 @@
 {
   "name": "projmate-cli",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "Projmate project utility",
   "main": "index.js",
   "scripts": {
@@ -18,6 +18,10 @@
   "author": "Mario Gutierrez <mario@mgutz.com>",
   "license": "AGPL",
   "readmeFilename": "README.md",
+  "dependencies": {
+    "commander.js": "git+ssh://git@github.com/mgutz/commander.js.git",
+    "projmate-core": "0.0.7"
+  },
   "bin": {
     "pm": "bin/pm"
    }
