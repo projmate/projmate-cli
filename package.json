@@ -19,8 +19,8 @@
   "license": "AGPL",
   "readmeFilename": "README.md",
   "dependencies": {
-    "commander.js": "git+ssh://git@github.com/mgutz/commander.js.git",
-    "projmate-core": "0.0.7"
+    "commander": "git+ssh://git@github.com/mgutz/commander.js.git",
+    "projmate-core": "~0.0.7"
   },
   "bin": {
     "pm": "bin/pm"
