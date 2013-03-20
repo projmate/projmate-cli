@@ -1,6 +1,6 @@
 {
   "name": "projmate-cli",
-  "version": "0.0.2",
+  "version": "0.0.4",
   "description": "Projmate project utility",
   "main": "index.js",
   "scripts": {

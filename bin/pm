@@ -16,7 +16,6 @@ program
   .option('-c, --core <projmate-core-path>', 'Custom path to projmate-core')
   .parse(process.argv);
 
-
 // try custom core
 var core;
 if (program.core) {
@@ -26,6 +25,11 @@ if (program.core) {
     console.error("--core directory does not exist");
     proces.reallyExit(1);
   }
+}
+
+// if in projmate-core project, use the project
+if (Fs.existsSync(Path.join(process.cwd(), 'src/cli/pm-run.coffee'))) {
+  core = require(process.cwd());
 }
 
 // else try node_modules in current directory
