@@ -14,9 +14,9 @@ var program = require('commander');
 program
   .version(pkg.version)
   .option('-c, --core <projmate-core-path>', 'Custom path to projmate-core')
-  .parse(process.argv);
 
-// try custom core
+
+// Try specific core from command-line
 var core;
 if (program.core) {
   if (Fs.existsSync(program.core)) {
@@ -27,7 +27,7 @@ if (program.core) {
   }
 }
 
-// if in projmate-core project, use the project
+// If in projmate-core project, use the project
 if (Fs.existsSync(Path.join(process.cwd(), 'src/cli/pm-run.coffee'))) {
   core = require(process.cwd());
 }
