@@ -1,18 +1,18 @@
 # projmate-cli
 
-Projmate is a declarative and more intuitive project system
+Projmate takes the best of Jake, Grunt and my experience with project
+deployments.
 
 * Build environments are first class citizens
-* Uses pipe and filters instead of everything-is-task hammer
+* Uses pipe and filters instead of everything-is-a-task hammer
 * Watch is built into every task
-
-This is the CLI. The sexy drag 'n drop GUI to follow.
+* HTTP and HTTPS server for testing non-secure connections
 
 ## Installation
 
 To install
 
-    npm install projmate-cli -g
+    npm install projmate-cli@0.1.0-dev -g
 
 ## Example Projfile.coffee
 
@@ -20,11 +20,12 @@ To install
 
 exports.project = (pm) ->
   f = pm.filters()
+  $ = pm.shell()
 
   pm.registerTasks
     stylesheets:
-      _desc: "Builds all stylesheets"
-      _files:
+      desc: "Builds all stylesheets"
+      files:
         include: [
           "client/css/barclet.less"
           "client/css/style.less"
