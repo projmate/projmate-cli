@@ -52,6 +52,21 @@ exports.project = (pm) ->
       ]
 ```
 
+## Watch
+
+Watching files is usually capped.
+
+On Linux (debian/ubuntu)
+
+*   Add this line to `/etc/sysctl.conf`
+
+        fs.inotify.max_user_watches = 524288
+
+*   Then apply changes:
+
+        sudo sysctl -p
+
+
 ## License
 
 Copyright (c) 2013 Mario Gutierrez <mario@projmate.com>
