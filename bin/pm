@@ -45,8 +45,12 @@ if (!core) {
   core = require('projmate-core');
 }
 
-console.log("v" + core._meta.version + ", " + Path.dirname(core._meta.filename));
-core.cli();
+try {
+  core.cli();
+} catch (ex) {
+  console.log("v" + core._meta.version + ", " + Path.dirname(core._meta.filename));
+  console.dir(ex);
+}
 
 // vim: set filetype=javascript :
 
